@@ -1,3 +1,5 @@
+"use strict"
+
 const language = prompt("Select language for learning from ru, eng, de");
 
 switch (language) {
@@ -13,3 +15,4 @@ switch (language) {
   default:
     console.log('Language not selected');
 }
+
