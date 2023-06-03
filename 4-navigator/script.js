@@ -1,3 +1,5 @@
+"use strict"
+
 const addressLat = Number(prompt('Enter address latitude'))
 const addressLong = Number(prompt('Enter address longitude'))
 const positionLat = Number(prompt('Enter your position latitude'))
