@@ -6,23 +6,20 @@ function bubbleSort (arr) {
   const sortArr = arr;
 
   for (let j = 0; j < sortArr.length-1; j++) {
-    let f = false;
+    let sortKey = false;
 
     for (let i = 0; i<sortArr.length-1-j; i++){
       if(sortArr[i] > sortArr[i+1]) {
         [sortArr[i], sortArr[i+1]] = [sortArr[i+1], sortArr[i]];
-        f = true;
+        sortKey = true;
       }
     }
+// Если перестановок не было значит сортировка закончена и можно раньше выйти из цикла
+    if (!sortKey) {break}
 
-    if (!f) {
-      break;
-    }
   }
 
   return sortArr;
 }
 
 console.log(bubbleSort(testArr));
-
-
