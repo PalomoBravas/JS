@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 function converter (money, currentCoin, targetCoin) {
   const currency = {
@@ -6,7 +6,7 @@ function converter (money, currentCoin, targetCoin) {
     'eur': 1.07,
     'rub': 0.013,
   };
-  if (!(currentCoin in currency && targetCoin in currency)) {
+  if (!(currency[currentCoin] && currency[targetCoin])) {
     return null
   }
 
