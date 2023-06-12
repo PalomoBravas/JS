@@ -34,9 +34,7 @@ const ToDoList = {
     if (!props || !Object.keys(props).length) {
       return null;
     }
-    for (const key in props) {
-      task[key] = props[key]
-    }
+    Object.entries(props).forEach(([key, value]) => task[key] = value);
   },
   sortTaskByPriority() {
     const tasks = this.tasks;
