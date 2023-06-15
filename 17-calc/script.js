@@ -6,18 +6,17 @@ const keyboard = document.querySelector('.keyboard');
 const resultField = document.querySelector('.result');
 
 function resetInputFields() {
-  inputOne.value = null;
-  inputTwo.value = null;
+  inputOne.value = '';
+  inputTwo.value = '';
 }
 
 function calculate(event) {
-  const numOne = Number(inputOne.value);
-  const numTwo = Number(inputTwo.value);
-
-  if (numOne === 0 || numTwo === 0) {
+  if (inputOne.value === ''|| inputTwo.value === '') {
     resultField.innerText = 'Enter all numbers'
     return;
   }
+  const numOne = Number(inputOne.value);
+  const numTwo = Number(inputTwo.value);
 
   switch (event.target.id) {
     case 'add':
