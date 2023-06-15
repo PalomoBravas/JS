@@ -1,10 +1,13 @@
 "use strict";
 
-const testTask = {
+
+const testTaskTwo = {
   id: 4,
   title: 'Drink water',
+  description: 'no important',
   priority: 1,
 };
+
 
 const ToDoList = {
   tasks: [{
@@ -35,6 +38,7 @@ const ToDoList = {
       return null;
     }
     Object.entries(props).forEach(([key, value]) => task[key] = value);
+    console.log(this.tasks)
   },
   sortTaskByPriority() {
     const tasks = this.tasks;
@@ -44,11 +48,21 @@ const ToDoList = {
   },
 };
 
-ToDoList.addTask(testTask);
-ToDoList.deleteTaskById(3);
-ToDoList.updateNameOrPriorityById(4, {
-  title: 'Drink gin',
-  priority: 10,
-  done: false,
-});
-ToDoList.sortTaskByPriority();
+const newTask = {
+  tasks: [
+    {id: 1,  title: 'Make homework', description: 'important', priority: 3,},
+    {id: 2,  title: 'Make dinner', description: 'not important', priority: 4,}
+  ],
+};
+
+const addTask = ToDoList.addTask.bind(newTask);
+const deleteTaskById = ToDoList.deleteTaskById.bind(newTask);
+const updateNameOrPriorityById = ToDoList.updateNameOrPriorityById.bind(newTask);
+const sortTaskByPriority = ToDoList.sortTaskByPriority.bind(newTask);
+
+addTask(testTaskTwo);
+addTask({id: 3,  title: 'Pills', description: 'morning', priority: 2,});
+deleteTaskById(1);
+updateNameOrPriorityById(2, {title: 'Make dinner', description:5,});
+sortTaskByPriority();
+
